@@ -1,2 +1,2 @@
-# mazerunner.github.io
-A repository for my 2nd game, mazerunner
+This is the personal website of Ednecia Matlapeng, I made it using javascript-html and css3.
+Go to ednecia.me
