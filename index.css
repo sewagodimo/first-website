@@ -5,27 +5,45 @@ body, html {
   font: 400 15px/1.8 "Lato", sans-serif;
    margin: 0;
   color: #777;
+  font-family: 'Emblema One';
 }
-/* CSS FOR THE NAV BAR inside the navbar */
+/*----------------------------------------- CSS FOR THE NAV BAR inside the navbar */
 html{
 	 box-sizing: border-box;
 }
 
-.main {
-  padding: 16px;
-  margin-bottom: 30px;
-  height: 1500px; /* Used in this example to enable scrolling */
-}
+
 .navbar {
   overflow: hidden;
   background-color: #333;
   position: fixed;
   top: 0;
   width: 100%;
+  height:10%;
+
 }
 .heading{
 	 width: 100%;
 	   z-index: 99;
+}
+.socials{
+	float:right;
+
+	
+
+}
+.social{
+	padding-left: 10px;
+	width:50px;
+	 height: 40px;
+	 border-radius: 50%;
+	 
+}
+.social:hover {
+	height: 50px;
+	width:60px;
+	/*filter:drop-shadow(8px 8px 10px orange);*/
+	
 }
 
 .navbar a {
@@ -38,14 +56,17 @@ html{
   font-size: 17px;
 }
 
-
+.navbar :hover{
+	color: orange;
+}
  
-/* CSS FOR THE  IMAGES */
+/* ------------------------------------------------------------------CSS FOR THE  IMAGES */
 .bg { 
     /* The image used */
     background-image: url("images/happy.jpg");
     /* Full height */
     height: 100%; 
+
     /* Grey Scale */
      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -170,6 +191,7 @@ html{
 .container {
   padding: 0 16px;
   color: black;
+   font-family: 'Kadwa'
 
 }
 
