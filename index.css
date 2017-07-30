@@ -3,17 +3,47 @@ body, html {
   height: 100%;
   margin: 2;
   font: 400 15px/1.8 "Lato", sans-serif;
+   margin: 0;
   color: #777;
+}
+/* CSS FOR THE NAV BAR inside the navbar */
+body{
+	
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
 
-
+ 
+/* CSS FOR THE  IMAGES */
 .bg { 
     /* The image used */
     background-image: url("images/happy.jpg");
 
     /* Full height */
     height: 100%; 
+
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -41,3 +71,19 @@ body, html {
   padding: 15px;
   letter-spacing: 10px;
 }
+#scrolldown {
+    /* Hidden by default */
+    position: absolute; /* Fixed/sticky position */
+    /* Place the button at the bottom of the page */
+    font-size: 30px;
+    /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: red; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+}
+
