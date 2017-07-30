@@ -1,0 +1,43 @@
+body, html {
+  
+  height: 100%;
+  margin: 2;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+
+
+.bg { 
+    /* The image used */
+    background-image: url("images/happy.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg:hover{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  font-size: 25px;
+  padding-bottom: 5px;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: grey;
+  color: #fff;
+  padding: 15px;
+  letter-spacing: 10px;
+}
