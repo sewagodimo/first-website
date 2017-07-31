@@ -1,5 +1,4 @@
 body, html {
-  
   height: 100%;
   margin: 2;
   font: 400 15px/1.8 "Lato", sans-serif;
@@ -7,6 +6,70 @@ body, html {
   color: #777;
   font-family: 'Emblema One';
 }
+
+/*---------------------------------------TIC TAC TOE GAME-------------------------------*/
+body {
+ 
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+  color: #FFF;
+  text-shadow: -1px -1px #333;
+  background: #333;
+}
+body h1 {
+  font-weight: normal;
+}
+body .turn {
+  margin-bottom: 10px;
+}
+body table {
+  border-collapse: collapse;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+body table td {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #555;
+  cursor: pointer;
+}
+body table td:before {
+  font-size: 30px;
+  line-height: 2;
+}
+body table td.cross:before {
+  content: "x";
+  color: orange;
+}
+body table td.circle:before {
+  content: "o";
+  color: white;
+}
+body .reset {
+  background: #555;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  color: #FFF;
+  cursor: pointer;
+  
+  text-transform: uppercase;
+}
+body .reset:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
 /*----------------------------------------- CSS FOR THE NAV BAR inside the navbar */
 html{
 	 box-sizing: border-box;
@@ -190,8 +253,8 @@ html{
 
 .container {
   padding: 0 16px;
-  color: black;
-   font-family: 'Kadwa'
+  color: gray;
+   font-family:"Roboto", Arial, sans-serif;
 
 }
 

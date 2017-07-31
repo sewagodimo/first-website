@@ -10,7 +10,8 @@ function checkWord() {
 		colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];	
 
     }
-    guess.value=copy.value;//"";
+    guess.value="";
+    initScene();
 
 }
 
