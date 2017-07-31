@@ -2,10 +2,14 @@
 <html>
 <head>
  <title>Ednecia Personal</title>
+ <link rel="stylesheet" media="screen" href="css/style.css">
  <link rel="stylesheet" type="text/css" href="index.css">
 <link href='https://fonts.googleapis.com/css?family=Emblema One' rel='stylesheet'>
  <script src="index.js"></script>
+ <script src="particles.js"></script>
  <link rel="shortcut icon" href="images/ednecia.png">
+
+  
 </head>
 <body>
 
@@ -51,7 +55,7 @@
     </nav>
   </div>
   </div>
-  <div class="heading" id="heading">WHO AM I</div>
+  <div class="heading" id="heading">ABOUT ME</div>
 <div class="mainbox" >
 <br>
 <div class="row">
@@ -103,6 +107,16 @@
 
    </div>
    </div>
+<div class="heading" id="particles">GUESS THE WORD</div>
+<canvas id="scene"></canvas>
+  <input id="copy" type="text" value="Ednecia Matlapeng" style="display: none;" />
+    <script src="javascript.js"></script>
 
+<input id="guesstext" type="text" value="guess"  />
+  <button onclick="onGuess()"></button>
+
+
+
+   
 </body>
 </html>
