@@ -10,7 +10,7 @@ function checkWord() {
 		colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];	
 
     }
-    guess.value="";
+    guess.value=copy.value;//"";
 
 }
 
@@ -100,28 +100,28 @@ function onTouchEnd(e){
     var count = Math.floor(Math.random() * 8);
     if(count==4){
 
-    	text.value="Success";
+    	text.value="success";
     }
     else if (count===0){
-    	text.value="Friends";
+    	text.value="friends";
     }
      else if (count===1){
-    	txt.value="Women";
+    	txt.value="women";
     }
      else if (count===2){
-    	text.value="Love";
+    	text.value="love";
     }
      else if (count===3){
-    	text.value="Happy";
+    	text.value="happy";
     }
     else if (count===3){
-    	text.value="Billion";
+    	text.value="billion";
     }
     else if (count===3){
-    	text.value="Peace";
+    	text.value="peace";
     }
     else{
-    	text.value="Code";
+    	text.value="code";
     }
 
 		
