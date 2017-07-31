@@ -1,8 +1,7 @@
 
-
 function checkWord() {
     var guess = document.querySelector("#guesstext");//get the user's input, check it against the copy and we will have a winner
-    if(guess.value===copy.value){
+    if(guess.value!==copy.value){
     	//you have lost;
     	colors = ["white","grey", "darkgray","green", "blue"];
     		
