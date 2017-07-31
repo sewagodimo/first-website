@@ -1,36 +1,19 @@
-var count=0;
-setInterval(doSomething, 500);
 
-function doSomething() {
-    var text = document.getElementById("copy");
-    if(count>=5){
-    	count=0;
-    	text.value="Success!";
-    }
-    else if (count===0){
-    	count++;
-    	text.value="Friends";
-    }
-     else if (count===1){
-    	count++;
-    	txt.value="Women";
-    }
-     else if (count===2){
-    	count++;
-    	text.value="Love!";
-    }
-     else if (count===3){
-    	count++;
-    	text.value="Happy";
+
+function checkWord() {
+    var guess = document.querySelector("#guesstext");//get the user's input, check it against the copy and we will have a winner
+    if(guess.value===copy.value){
+    	//you have lost;
+    	colors = ["white","grey", "darkgray","green", "blue"];
+    		
     }
     else{
-    	count++;
-    	text.value="Code";
+		colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];	
+
     }
+    guess.value="";
 
 }
-
-
 
 
 	var canvas = document.querySelector("#scene"),
@@ -113,6 +96,36 @@ function onTouchEnd(e){
 }
 
 	function initScene(){
+
+ var text = document.querySelector("#copy");
+    var count = Math.floor(Math.random() * 8);
+    if(count==4){
+
+    	text.value="Success";
+    }
+    else if (count===0){
+    	text.value="Friends";
+    }
+     else if (count===1){
+    	txt.value="Women";
+    }
+     else if (count===2){
+    	text.value="Love";
+    }
+     else if (count===3){
+    	text.value="Happy";
+    }
+    else if (count===3){
+    	text.value="Billion";
+    }
+    else if (count===3){
+    	text.value="Peace";
+    }
+    else{
+    	text.value="Code";
+    }
+
+		
 		ww = canvas.width = window.innerWidth;
 		wh = canvas.height = window.innerHeight;
 
@@ -130,7 +143,7 @@ function onTouchEnd(e){
 		for(var i=0;i<ww;i+=Math.round(ww/150)){
 			for(var j=0;j<wh;j+=Math.round(ww/150)){
 				if(data[ ((i + j*ww)*4) + 3] > 150){
-					particles.push(new Particle(i,j));
+					particles.push(new Particle(i+3,j+3));
 				}
 			}
 		}
@@ -161,3 +174,4 @@ function onTouchEnd(e){
 	window.addEventListener("touchend", onTouchEnd);
 	initScene();
 	requestAnimationFrame(render);
+	setInterval(initScene, 9000);

@@ -2,7 +2,7 @@
 <html>
 <head>
  <title>Ednecia Personal</title>
- <link rel="stylesheet" media="screen" href="css/style.css">
+ 
  <link rel="stylesheet" type="text/css" href="index.css">
 <link href='https://fonts.googleapis.com/css?family=Emblema One' rel='stylesheet'>
  <script src="index.js"></script>
@@ -108,13 +108,16 @@
    </div>
    </div>
 <div class="heading" id="particles">GUESS THE WORD</div>
-<canvas id="scene"></canvas>
-  <input id="copy" type="text" value="Ednecia Matlapeng" style="display: none;" />
-    <script src="javascript.js"></script>
+<div style="background: black;text-align: center;">
+<canvas id="scene" style="height: 400px;width: 100%"></canvas>
+  <input id="copy" type="text" value="Ednecia" style="display: none;background: black;" />
 
-<input id="guesstext" type="text" value="guess"  />
-  <button onclick="onGuess()"></button>
+<input id="guesstext" type="text" value=""  />
+<input type="submit" onclick="checkWord()" value="guess">
+    <script src="javascript.js" ></script>
 
+ 
+</div>
 
 
    

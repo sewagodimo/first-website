@@ -209,4 +209,28 @@ html{
 /*--------------------------------------THE WORDED PARTICLES--------------------*/
 #scene{
 	background: black;
+  text-align: center;
+}
+input[type="text"] {
+    width: 200px;
+  
+    height: 50px;
+    padding-right: 50px;
+    opacity: 0.9px;
+      color: grey;
+  font-size: 18px;
+    
+}
+
+input[type="submit"] {
+    margin-left: -50px;
+    height: 50px;
+    width: 70px;
+
+    background: orangeRed;
+    color: white;
+    border: 0;
+    font-size: 18px;
+    -webkit-appearance: none;
+    cursor: pointer; 
 }
