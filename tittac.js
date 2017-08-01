@@ -216,11 +216,21 @@ function reset(table) {
 ///////////////////////////////////////////////////////////COMPUTER MOVE GENERATOR
 //pLAYER 1==cross YOU
 //PLAYER 2==CIRCLE COMPUTER
-var compMove = function (table){
+var compMove = function (){
   
   var circle='circle';
   var emtpy='';
- 
+  if (a2.hasClass(circle)){ if( (a1.hasClass(circle) && (!getState(a3) ))){ a3.addClass(circle); return; }  else if( (a3.hasClass(circle) && (!getState(a1) ))){ a3.addClass(circle); return};  }// row one
+   if (b2.hasClass(circle)){ if( (b1.hasClass(circle) && (!getState(b3) ))){ b3.addClass(circle); return; }  else if( (b3.hasClass(circle) && (!getState(b1) ))){ b3.addClass(circle); return;}  }// row two
+   if (c2.hasClass(circle)){ if( (c1.hasClass(circle) && (!getState(c3) ))){ c3.addClass(circle); return; }  else if( (c3.hasClass(circle) && (!getState(c1) ))){ c3.addClass(circle); return;}  }// row three
+   
+   if (b1.hasClass(circle)){ if( (a1.hasClass(circle) && (!getState(c1) ))){ c1.addClass(circle); return; }  else if( (c1.hasClass(circle) && (!getState(a1) ))){ a1.addClass(circle); return;}  }// column one
+    if (b2.hasClass(circle)){ if( (a2.hasClass(circle) && (!getState(c2) ))){ c2.addClass(circle); return; }  else if( (c2.hasClass(circle) && (!getState(a2) ))){ a2.addClass(circle); return;}  }// column two
+    if (b3.hasClass(circle)){ if( (a3.hasClass(circle) && (!getState(c3) ))){ c3.addClass(circle); return; }  else if( (c3.hasClass(circle) && (!getState(a3) ))){ a3.addClass(circle); return;}  }// column three
+
+    if (b2.hasClass(circle)){ if( (a3.hasClass(circle) && (!getState(c1) ))){ c1.addClass(circle); return; }  else if( (c1.hasClass(circle) && (!getState(a3) ))){ a3.addClass(circle); return;}  }// diagonal one
+    if (b2.hasClass(circle)){ if( (a1.hasClass(circle) && (!getState(c3) ))){ c3.addClass(circle); return; }  else if( (c3.hasClass(circle) && (!getState(a1) ))){ a1.addClass(circle); return;}  }// diagonal one
+
     if ((!getState(a1)) && ((a3.hasClass('cross') && a2.hasClass('cross')) || (c3.hasClass('cross') && b2.hasClass('cross')) || (c1.hasClass('cross') && b1.hasClass('cross')))) 
     { a1.addClass(circle);
        player=1;
