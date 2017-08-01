@@ -192,7 +192,6 @@ else{
 
 function checkIfPlayerWon(table, pattern) {
   var won = 0;
-  messages.html(b2.hasClass('circle')+' '+a3.hasClass('circle')+' '+c1.hasClass('circle'));
    if (
    (a1.hasClass(pattern) && a3.hasClass(pattern) && a2.hasClass(pattern) )|| //first row
    (b1.hasClass(pattern) && b2.hasClass(pattern) && b3.hasClass(pattern)) || //second row
