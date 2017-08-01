@@ -16,20 +16,21 @@
 
 
 <div class="bg nav" id ="home">
-	 <div class="caption">
+   <div class="caption">
     <span class="border" >EDNECIA MATLAPENG</span>
     <br>
    <span class="border" > University of Cape Town</span>
     <br>
     <span class="border" >COMPUTER SCIENCE</span>
     <br>
-
-    <div class="navbar">
+     <a href="javascript:void(0);" class="menuIcon2" id="menuIcon" onclick="showMenu()">&#9776;</a>
+    <div class="navbar" id="menu">
+   
   <a href="#home">HOME</a>
    <a href="#about">ABOUT</a>
    <a href="https://ednecia-personal.herokuapp.com/pages/Home" target="_blank">PERSONAL SITE</a>
   
-   <div style="" class="socials">
+   <section style="" class="socials">
   <a href="https://www.linkedin.com/in/sewagodimo-matlapeng-b502b9103/" target="_blank" " class="social">
                 <img src="images/social/in.png" class="social"></a>
 
@@ -45,25 +46,20 @@
     <a href="https://www.facebook.com/sewagodimo.matlapeng" target="_blank" class="social">
                       <img src="images/social/facebook.png" class="social"></a>
     <a class="social"></a>
-    </div>
+    </section>
   
 </div>
     <!--a href="#heading" id="scrolldown" >&#x21E9 </a-->
-    <nav>
-        <ul>
-        <section id="scrolldown" style="font-size:104px" >
-     <a href="#down"   >  </i> </a>
-     </section>
-      </ul>
-    </nav>
-    <div id="down"></div>
+     <a href="#down"   > <section id="scrolldown" style="font-size:104px" ></section>  </a>
+ 
   </div>
+   
   </div>
 
-
+  <div id="down"></div>
 <div class="heading" id="particles">guess the word the bubbles will form</div>
 <div style="background: black;text-align: center;">
-<canvas id="scene" style="height: 400px;width: 100%"></canvas>
+<canvas id="scene" style="height: 480px;width: 100%"></canvas>
   <input id="copy" type="text" value="Ednecia" style="display: none;background: black;" />
 
 <input id="guesstext" type="text" value=""  />
@@ -74,10 +70,10 @@
 </div>
 <div class="heading" id="tictac">Lets Play tic tac toe</div>
 
-<div class="messages"></div>
+<div class="messages" style="height: 10%"></div>
 <div class="turn"></div>
 
-<table>
+<table style="background: lightblue">
   <tr>
     <td class="item1"></td>
     <td class="item2"></td>

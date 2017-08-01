@@ -1,4 +1,36 @@
+//////////////////////////////////////////////////////////////////////
+window.onscroll = function() {scrolldown()};
 
+function scrolldown() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+       
+        document.getElementById("menuIcon").style.display = "block";
+         document.getElementById("menu").style.display= "none"; 
+            //     document.getElementById("menu").style.display= "block"; 
+       // document.getElementById("menu").style.animationName= "slideOut";
+      //document.getElementById("menu").style.WebkitAnimationName = "slideOut";
+        
+    }
+    else{
+    	document.getElementById("menu").style.display = "block";
+    	document.getElementById("menuIcon").style.display= "none";
+    	//document.getElementById("menu").style.animationName= "slideIn";
+     // document.getElementById("menu").style.WebkitAnimationName = "slideIn";
+      
+    	
+    }
+}
+
+function showMenu(){
+		
+		document.getElementById("menuIcon").style.display= "none";
+	//document.getElementById("menu").style.animationName= "slideIn";
+     // document.getElementById("menu").style.WebkitAnimationName = "slideIn";
+      document.getElementById("menu").style.display = "block";
+    	
+
+}
+//////////////////////////////////////////////////////////////////////////////////
 function checkWord() {
     var guess = document.querySelector("#guesstext");//get the user's input, check it against the copy and we will have a winner
     if(guess.value!==copy.value){
