@@ -29,38 +29,56 @@
   });
 });
 
+
 /////////////////////////////////////////////////////////////////////////THE TABLE
  var a1= $('#a1');
-   var a2=$('#a3');
-    var a3=$('#a2');
+   var a2=$('#a2');
+    var a3=$('#a3');
      var b1=$('#b1');
      var b2=$('#b2');
      var b3=$('#b3');
       var c1=$('#c1');
       var c2=$('#c2');
       var c3=$('#c3');
-
-//////////////////////////////////////////////////////////////////////////////
-var turns=0;
+      var turns=0;
 var gameOn=true;
-$(function() {
-  
-  var player = 1;
-  var table = $('table');
+ var player = 1;
+ var table = $('table');
   var messages = $('.messages');
   var turn = $('.turn');
+//////////////////////////////////////////////////////////////////////////////
+
+/*
+  var newGame = function () {
+    $('td').one('click', function (event) {
+        if (turn == 0) {
+            $(this).text(human);
+            boardCheck();
+            checkWin();
+            turn == 1;
+            compMove();
+            boardCheck();
+            checkWin();
+        }
+    });
+};
+
+*/
+$(function() {
+  
 
   displayNextPlayer(turn, player);
   
   $('td').click(function() {
+  if(player==1){
     td = $(this);
     var state = getState(td);
     messages.html('');
     if(!state) {
-      var pattern = definePatternForCurrentPlayer(player);
+      var pattern = 'cross';
       changeState(td, pattern);
       if(checkIfPlayerWon(table, pattern)) {
-        if(player===1){
+        if(player==1){
            messages.html('You Win!!!');
            gameOn=false;
         }
@@ -72,8 +90,7 @@ $(function() {
         turn.html('Reset to play again');
         gameOn=false;
       } 
-      else
-       {
+      else{ //the player did not win
         if(turns>=8){
                messages.html('It\'s a draw!');
                turn.html('Reset to play again');
@@ -84,20 +101,26 @@ $(function() {
               {
                 if(gameOn===true){
                 turns+=1;
-          player = setNextPlayer(player);
-        displayNextPlayer(turn, player);
+               player =2;
+             displayNextPlayer(turn, player);
+             myTurn(turn,player); //so its the computer's turn to win
+            
+        
       }
       }
       }
     } else {
       messages.html('This box is already checked.');
     }
+
+  }
   });
   
   $('.reset').click(function() {
     player = 1;
     messages.html('');
     reset(table);
+    turns=0;
     displayNextPlayer(turn, player);
     gameOn=true;
   });
@@ -124,20 +147,41 @@ function definePatternForCurrentPlayer(player) {
   }
 }
 
-function setNextPlayer(player) {
+function myTurn(turn, player){
+  messages.html('thinking....');
+  table = $('table');
+setTimeout(
+  function() 
+  {
+   compMove();
+   turn.html('Your Turn');
+   messages.html('');
+    var pattern = 'circle';
+        turns+=1; 
+      if(checkIfPlayerWon(table, 'circle')) {
+           messages.html('I Win!!!!');
+           gameOn=false;
+        
+        turn.html('Reset to play again');
+      } 
+      else{ //the player did not win
+        if(turns>=9){
+               messages.html('It\'s a draw!');
+               turn.html('Reset for a rematch');
+                turns=0;
+                gameOn=false;
+             
+             }
+             }
 
-  if(player == 1) {
-    return player = 2;
-  } else {
-    return player = 1;
-  }
-}
-function myturn(table,pattern){
 
+
+  }, 3000);
+player=1;
 }
 
 function displayNextPlayer(turn, player) {
- if(player===1){
+ if(player==1){
 
   turn.html('Your Turn');
 }
@@ -148,23 +192,20 @@ else{
 
 function checkIfPlayerWon(table, pattern) {
   var won = 0;
-  if(a1.hasClass(pattern) && a2.hasClass(pattern) && a3.hasClass(pattern)) {
-    won = 1;
-  } else if (a1.hasClass(pattern) && b1.hasClass(pattern) && c1.hasClass(pattern)) {
-    won = 1;
-  } else if (a1.hasClass(pattern) && b2.hasClass(pattern) && c3.hasClass(pattern)) {
-    won = 1;
-  } else if (b1.hasClass(pattern) && b2.hasClass(pattern) && b3.hasClass(pattern)) {
-    won = 1;
-  } else if (c1.hasClass(pattern) && c2.hasClass(pattern) && c3.hasClass(pattern)) {
-    won = 1;
-  } else if (a2.hasClass(pattern) && b2.hasClass(pattern) && c2.hasClass(pattern)) {
-    won = 1;
-  } else if (a3.hasClass(pattern) && b3.hasClass(pattern) && c3.hasClass(pattern)) {
-    won = 1;
-  } else if (a3.hasClass(pattern) && b2.hasClass(pattern) && c1.hasClass(pattern)) {
-    won = 1;
-  }
+  messages.html(b2.hasClass('circle')+' '+a3.hasClass('circle')+' '+c1.hasClass('circle'));
+   if (
+   (a1.hasClass(pattern) && a3.hasClass(pattern) && a2.hasClass(pattern) )|| //first row
+   (b1.hasClass(pattern) && b2.hasClass(pattern) && b3.hasClass(pattern)) || //second row
+    (c1.hasClass(pattern) && c2.hasClass(pattern) && c3.hasClass(pattern)) || //third row
+      (a1.hasClass(pattern) && b1.hasClass(pattern) && c1.hasClass(pattern) )||//first column
+        (a2.hasClass(pattern) && b2.hasClass(pattern) && c2.hasClass(pattern) )||
+          (a3.hasClass(pattern) && b3.hasClass(pattern) && c3.hasClass(pattern)) ||//last column
+            (a3.hasClass(pattern) && b2.hasClass(pattern) && c1.hasClass(pattern)) ||
+            (a1.hasClass(pattern) && b2.hasClass(pattern) && c3.hasClass(pattern)) ) 
+          {
+            
+ won = 1;
+            }
   return won;
 }
 
@@ -176,85 +217,82 @@ function reset(table) {
 ///////////////////////////////////////////////////////////COMPUTER MOVE GENERATOR
 //pLAYER 1==cross YOU
 //PLAYER 2==CIRCLE COMPUTER
-var compMove = function (table) {
+var compMove = function (table){
   
   var circle='circle';
-  //addClass(pattern)
   var emtpy='';
  
-    if ((!getState(a1)) && ((a3.hasClass('cross') && a2.hasClass('cross')) || (c3.hasClass('cross') && b2.hasClass('cross')) || (c1.hasClass('cross') && b1.hasClass('cross')))) {
-        a1.addClass(circle);
+    if ((!getState(a1)) && ((a3.hasClass('cross') && a2.hasClass('cross')) || (c3.hasClass('cross') && b2.hasClass('cross')) || (c1.hasClass('cross') && b1.hasClass('cross')))) 
+    { a1.addClass(circle);
+       player=1;
         
     } else {
-      if (a2 == "" && ((a1.hasClass('cross') && a3.hasClass('cross')) || (c2.hasClass('cross') && b2.hasClass('cross')))) {
+
+      if ((!getState(a2)) && ((a1.hasClass('cross') && a3.hasClass('cross')) || (c2.hasClass('cross') && b2.hasClass('cross')))) 
+      {
        a2.addClass(circle);
-        
+         player=1;
         }
         else{
-        if (a3 == "" && ((a1.hasClass('cross') && a2.hasClass('cross')) || (c1.hasClass('cross') && b2.hasClass('cross')) || (c3.hasClass('cross') && b3.hasClass('cross')))) {
-           a2.addClass(circle);
-            
+        if ((!getState(a3)) && ((a1.hasClass('cross') && a2.hasClass('cross')) || (c1.hasClass('cross') && b2.hasClass('cross')) || (c3.hasClass('cross') && b3.hasClass('cross')))) 
+        {
+           a3.addClass(circle);
+             player=1;
         }
             else{
-            if (c3 == "" && ((c1.hasClass('cross') && c2.hasClass('cross')) || (a1.hasClass('cross') && b2.hasClass('cross')) || (a3.hasClass('cross') && b3.hasClass('cross')))) {
-               a3.addClass(circle);
-                
-        }
+            if ((!getState(c3)) && ((c1.hasClass('cross') && c2.hasClass('cross')) || (a1.hasClass('cross') && b2.hasClass('cross')) || (a3.hasClass('cross') && b3.hasClass('cross')))) 
+            {
+               c3.addClass(circle);
+                 player=1;
+              }
                 else{
-                if (c1 == "" && ((c3.hasClass('cross') && c2.hasClass('cross')) || (a3.hasClass('cross') && b2.hasClass('cross')) || (a1.hasClass('cross') && b1.hasClass('cross')))) {
+                if ((!getState(c1)) && ((c3.hasClass('cross') && c2.hasClass('cross')) || (a3.hasClass('cross') && b2.hasClass('cross')) || (a1.hasClass('cross') && b1.hasClass('cross')))) 
+                {
                      c1.addClass(circle);
-                    
-        }
+                     player=1;
+                  }
                     else{
-                    if (c2 == "" && ((c3.hasClass('cross') && c1.hasClass('cross')) || (a2.hasClass('cross') && b2.hasClass('cross')))) {
+                    if ((!getState(c2)) && ((c3.hasClass('cross') && c1.hasClass('cross')) || (a2.hasClass('cross') && b2.hasClass('cross')))) 
+                    {
                          c2.addClass(circle);
-                        
-        }
+                         player=1;
+                       }
                         else{
-                        if (b1 == "" && ((b3.hasClass('cross') && b2.hasClass('cross')) || (a1.hasClass('cross') && c1.hasClass('cross')))) {
+                        if ((!getState(b1))&& ((b3.hasClass('cross') && b2.hasClass('cross')) || (a1.hasClass('cross') && c1.hasClass('cross')))) 
+                        {
                             b1.addClass(circle);
-                            
-        }
-                            else{
-                            if (b3 == "" && ((a3.hasClass('cross') && c3.hasClass('cross')) || (b2.hasClass('cross') && b1.hasClass('cross')))) {
+                             player=1;
+                        }
+                            else
+                            {
+                            if ((!getState(b3)) && ((a3.hasClass('cross') && c3.hasClass('cross')) || (b2.hasClass('cross') && b1.hasClass('cross'))))
+                                  {
                                 b3.addClass(circle);
-                                
-        }
+                                 player=1;
+                                  }
                                 else{
-                                if (b2 == "" && ((a3.hasClass('cross') && c1.hasClass('cross')) || (c3.hasClass('cross') && a1.hasClass('cross')) || (b3.hasClass('cross') && b1.hasClass('cross')) || (c2.hasClass('cross') && a2.hasClass('cross')))) {
-                                    b2.addClass(circle);
-                                    
-        }
+                                if ((!getState(b2)) && ((a3.hasClass('cross') && c1.hasClass('cross')) || (c3.hasClass('cross') && a1.hasClass('cross')) || (b3.hasClass('cross') && b1.hasClass('cross')) || (c2.hasClass('cross') && a2.hasClass('cross')))) 
+                                { b2.addClass(circle); }
                                    else{ // IF NO OPP TO BLOCK A WIN, THEN PLAY IN ONE OF THESE SQUARES
                                     if (!getState(b2)) {
                                         b2.addClass(circle);
-                                        
-                                       
-                                    }
+                                        player=1;}
                                         else{
                                         if (!getState(a1)) {
                                            a1.addClass(circle);
-                                            
-                                            
-                                    }
+                                           player=1;}
                                             else{
                                             if (!getState(c3)) {
-                                            c3.addClass(circle);
-                                            
-                                          
-                                    } 
+                                            c3.addClass(circle); 
+                                            player=1;} 
                                                 else {
                                                 if (!getState(c2)) {
-                                           c2.addClass(circle);
-                                            
-                                          
-                                    }
+                                           c2.addClass(circle); 
+                                           player=1;}
                                                     else{
                                                     if (!getState(b1)) {
                                             b1.addClass(circle);
-                                            
-                                          
-                                    }
+                                            player=1; }
                                                     }
                                                 }
                                             }
