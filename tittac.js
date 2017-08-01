@@ -29,30 +29,65 @@
   });
 });
 
-/////////////////////////////////////////////////////////////////////////fade in on scroll
-
+/////////////////////////////////////////////////////////////////////////THE TABLE
+ var a1= $('#a1');
+   var a2=$('#a3');
+    var a3=$('#a2');
+     var b1=$('#b1');
+     var b2=$('#b2');
+     var b3=$('#b3');
+      var c1=$('#c1');
+      var c2=$('#c2');
+      var c3=$('#c3');
 
 //////////////////////////////////////////////////////////////////////////////
+var turns=0;
+var gameOn=true;
 $(function() {
   
   var player = 1;
   var table = $('table');
   var messages = $('.messages');
   var turn = $('.turn');
+
   displayNextPlayer(turn, player);
   
   $('td').click(function() {
     td = $(this);
     var state = getState(td);
+    messages.html('');
     if(!state) {
       var pattern = definePatternForCurrentPlayer(player);
       changeState(td, pattern);
       if(checkIfPlayerWon(table, pattern)) {
-        messages.html('Player '+player+' has won.');
-        turn.html('');
-      } else {
-        player = setNextPlayer(player);
+        if(player===1){
+           messages.html('You Win!!!');
+           gameOn=false;
+        }
+        else{
+           messages.html('I Win.');
+           gameOn=false;
+        }
+         
+        turn.html('Reset to play again');
+        gameOn=false;
+      } 
+      else
+       {
+        if(turns>=8){
+               messages.html('It\'s a draw!');
+               turn.html('Reset to play again');
+                turns=0;
+                gameOn=false;
+             } 
+             else
+              {
+                if(gameOn===true){
+                turns+=1;
+          player = setNextPlayer(player);
         displayNextPlayer(turn, player);
+      }
+      }
       }
     } else {
       messages.html('This box is already checked.');
@@ -64,6 +99,7 @@ $(function() {
     messages.html('');
     reset(table);
     displayNextPlayer(turn, player);
+    gameOn=true;
   });
   
 });
@@ -89,34 +125,44 @@ function definePatternForCurrentPlayer(player) {
 }
 
 function setNextPlayer(player) {
+
   if(player == 1) {
     return player = 2;
   } else {
     return player = 1;
   }
 }
+function myturn(table,pattern){
+
+}
 
 function displayNextPlayer(turn, player) {
-  turn.html('Player turn : '+player);
+ if(player===1){
+
+  turn.html('Your Turn');
+}
+else{
+  turn.html('My Turn');
+}
 }
 
 function checkIfPlayerWon(table, pattern) {
   var won = 0;
-  if(table.find('.item1').hasClass(pattern) && table.find('.item2').hasClass(pattern) && table.find('.item3').hasClass(pattern)) {
+  if(a1.hasClass(pattern) && a2.hasClass(pattern) && a3.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item1').hasClass(pattern) && table.find('.item4').hasClass(pattern) && table.find('.item7').hasClass(pattern)) {
+  } else if (a1.hasClass(pattern) && b1.hasClass(pattern) && c1.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item1').hasClass(pattern) && table.find('.item5').hasClass(pattern) && table.find('.item9').hasClass(pattern)) {
+  } else if (a1.hasClass(pattern) && b2.hasClass(pattern) && c3.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item4').hasClass(pattern) && table.find('.item5').hasClass(pattern) && table.find('.item6').hasClass(pattern)) {
+  } else if (b1.hasClass(pattern) && b2.hasClass(pattern) && b3.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item7').hasClass(pattern) && table.find('.item8').hasClass(pattern) && table.find('.item9').hasClass(pattern)) {
+  } else if (c1.hasClass(pattern) && c2.hasClass(pattern) && c3.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item2').hasClass(pattern) && table.find('.item5').hasClass(pattern) && table.find('.item8').hasClass(pattern)) {
+  } else if (a2.hasClass(pattern) && b2.hasClass(pattern) && c2.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item3').hasClass(pattern) && table.find('.item6').hasClass(pattern) && table.find('.item9').hasClass(pattern)) {
+  } else if (a3.hasClass(pattern) && b3.hasClass(pattern) && c3.hasClass(pattern)) {
     won = 1;
-  } else if (table.find('.item3').hasClass(pattern) && table.find('.item5').hasClass(pattern) && table.find('.item7').hasClass(pattern)) {
+  } else if (a3.hasClass(pattern) && b2.hasClass(pattern) && c1.hasClass(pattern)) {
     won = 1;
   }
   return won;
@@ -127,3 +173,101 @@ function reset(table) {
     $(this).removeClass('circle').removeClass('cross');
   });
 }
+///////////////////////////////////////////////////////////COMPUTER MOVE GENERATOR
+//pLAYER 1==cross YOU
+//PLAYER 2==CIRCLE COMPUTER
+var compMove = function (table) {
+  
+  var circle='circle';
+  //addClass(pattern)
+  var emtpy='';
+ 
+    if ((!getState(a1)) && ((a3.hasClass('cross') && a2.hasClass('cross')) || (c3.hasClass('cross') && b2.hasClass('cross')) || (c1.hasClass('cross') && b1.hasClass('cross')))) {
+        a1.addClass(circle);
+        
+    } else {
+      if (a2 == "" && ((a1.hasClass('cross') && a3.hasClass('cross')) || (c2.hasClass('cross') && b2.hasClass('cross')))) {
+       a2.addClass(circle);
+        
+        }
+        else{
+        if (a3 == "" && ((a1.hasClass('cross') && a2.hasClass('cross')) || (c1.hasClass('cross') && b2.hasClass('cross')) || (c3.hasClass('cross') && b3.hasClass('cross')))) {
+           a2.addClass(circle);
+            
+        }
+            else{
+            if (c3 == "" && ((c1.hasClass('cross') && c2.hasClass('cross')) || (a1.hasClass('cross') && b2.hasClass('cross')) || (a3.hasClass('cross') && b3.hasClass('cross')))) {
+               a3.addClass(circle);
+                
+        }
+                else{
+                if (c1 == "" && ((c3.hasClass('cross') && c2.hasClass('cross')) || (a3.hasClass('cross') && b2.hasClass('cross')) || (a1.hasClass('cross') && b1.hasClass('cross')))) {
+                     c1.addClass(circle);
+                    
+        }
+                    else{
+                    if (c2 == "" && ((c3.hasClass('cross') && c1.hasClass('cross')) || (a2.hasClass('cross') && b2.hasClass('cross')))) {
+                         c2.addClass(circle);
+                        
+        }
+                        else{
+                        if (b1 == "" && ((b3.hasClass('cross') && b2.hasClass('cross')) || (a1.hasClass('cross') && c1.hasClass('cross')))) {
+                            b1.addClass(circle);
+                            
+        }
+                            else{
+                            if (b3 == "" && ((a3.hasClass('cross') && c3.hasClass('cross')) || (b2.hasClass('cross') && b1.hasClass('cross')))) {
+                                b3.addClass(circle);
+                                
+        }
+                                else{
+                                if (b2 == "" && ((a3.hasClass('cross') && c1.hasClass('cross')) || (c3.hasClass('cross') && a1.hasClass('cross')) || (b3.hasClass('cross') && b1.hasClass('cross')) || (c2.hasClass('cross') && a2.hasClass('cross')))) {
+                                    b2.addClass(circle);
+                                    
+        }
+                                   else{ // IF NO OPP TO BLOCK A WIN, THEN PLAY IN ONE OF THESE SQUARES
+                                    if (!getState(b2)) {
+                                        b2.addClass(circle);
+                                        
+                                       
+                                    }
+                                        else{
+                                        if (!getState(a1)) {
+                                           a1.addClass(circle);
+                                            
+                                            
+                                    }
+                                            else{
+                                            if (!getState(c3)) {
+                                            c3.addClass(circle);
+                                            
+                                          
+                                    } 
+                                                else {
+                                                if (!getState(c2)) {
+                                           c2.addClass(circle);
+                                            
+                                          
+                                    }
+                                                    else{
+                                                    if (!getState(b1)) {
+                                            b1.addClass(circle);
+                                            
+                                          
+                                    }
+                                                    }
+                                                }
+                                            }
+                                   
+                                    
+                                        }
+                                   }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+};
