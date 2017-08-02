@@ -11,7 +11,6 @@
 <script src="index.js"></script>
  <script src="particles.js"></script>
  <link rel="shortcut icon" href="images/ednecia.png">
-  
 </head>
 <body>
 
@@ -58,7 +57,7 @@
 <div class="heading" id="particles">guess the word the bubbles will form</div>
 <div style="background: black;text-align: center;">
 <canvas id="scene" style="height: 480px;width: 100%"></canvas>
-  <input id="copy" type="text" value="Ednecia" style="display: none;background: black;" />
+  <input id="copy" type="guessgame" value="Ednecia" style="display: none;background: white;" />
 
 <input id="guesstext" type="text" value=""  />
 <input type="submit" onclick="checkWord()" value="guess">
@@ -99,21 +98,21 @@
  <div >
 
    <a href=""  id="webdev" style="font-size: 25px; text-decoration: none;">
-   <img src="images/html.png" style="width: 10%;height: 10%;" class="projects a1"></a>
+   <img src="images/html.png" style="width: 5%;height: 5%;" class="projects a1"></a>
 
  <a href=""  id="wordpress" style="font-size: 25px; text-decoration: none;">
-  <img src="images/wordpress.png" style="width: 10%;height: 10%;" class="projects a2"></a>
+  <img src="images/wordpress.png" style="width: 5%;height: 5%;" class="projects a2"></a>
 
   <a href=""  id="wordpress" style="font-size: 25px; text-decoration: none;">
-  <img src="images/rails.png" style="width: 10%;height: 10%;" class="projects a3"></a>
+  <img src="images/rails.png" style="width: 5%;height: 5%;" class="projects a3"></a>
 
   <a href=""  id="wordpress" style="font-size: 25px; text-decoration: none;">
-  <img src="images/react.png" style="width: 10%;height: 10%;" class="projects a4"></a>
+  <img src="images/react.png" style="width: 5%;height: 5%;" class="projects a4"></a>
 
     <a href=""  id="wordpress" style="font-size: 25px; text-decoration: none;">
-  <img src="images/android.png" style="width: 10%;height: 10%;" class="projects a5"></a>
+  <img src="images/android.png" style="width: 5%;height: 5%;" class="projects a5"></a>
     <a href=""  id="wordpress" style="font-size: 25px; text-decoration: none;">
-  <img src="images/unity.jpg" style="width: 15%;height: 10%;" class="projects a6"></a>
+  <img src="images/unity.jpg" style="width: 5%;height: 5%;" class="projects a6"></a>
 
   </div>
   <ul style=" color: white; font-size: 25px;right:-50%;">
@@ -180,7 +179,44 @@
 
 
    </div>
+
    </div>
+<div id="contactheading" class="contact">
+<div class="heading" style="text-align:center"  ;"><b>What can I do for you</b></div>
+<div class="formcontainer">
+  <p><span class="error">* required field.</span></p>
+<form  method="post" action="index.php" > 
+
+    <label for="name" > Name <b>*</b> </label>
+    <input type="text" id="name" name="name" placeholder="Your name..">
+
+    <label for="email">Email<b>*</b></label>
+    <input type="text" id="email" name="email" placeholder="Your email address name..">
+    <br/>
+    <label for="orgname">Organization</label>
+    <input type="text" id="org" name="org" placeholder="The name of your organization..">
+
+
+    <label for="via">Where did you hear about me</label>
+    <select id="via" name="via">
+      <option value="A-friend">A friend</option>
+      <option value="Social-Media">Social Media</option>
+      <option value="Previous-client">Previous client</option>
+    </select>
+
+    <label for="subject">Message<b>*</b></label>
+    <textarea id="msg" name="msg" placeholder="Enter message here.." style="height:200px"></textarea>
+
+    <br/>
+    <label for="via">*What is 2+2? (Anti-spam)</label>
+  <input name="human" placeholder="Type Here" type="text">
+  <br/> <br/>
+    <input type="submit" value="Send">
+    <!--input type="submit" value="Submit"-->
+    </form>
+</div>
+
+
  <div  style="position: relative;bottom: 0%; color: white;font: 400 15px/1.8 'Lato', sans-serif; width: 100%;
   height:5%; text-align: center;">
   <img src="images/ednecia.png" style="height: 25px;width: 25px">

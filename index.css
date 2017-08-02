@@ -213,7 +213,7 @@ html{
 	 height: 40px;
    font-size: 36px;
 	 border-radius: 50%;
-   
+
 	 
 }
 
@@ -498,4 +498,49 @@ input[type="submit"] {
     font-size: 18px;
     -webkit-appearance: none;
     cursor: pointer; 
+}
+/*-----------------------------CONTACT FORM-------------------------*/
+input[type=text], select, textarea {
+  width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color:orange;
+    font-weight: bold;
+    background-color: black;
+    border-bottom: 2px solid orange;
+}
+input[type=guessgame]{
+  background-color: white;
+  width:30%;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    background-color: orange;
+    border-radius: 4px;
+     width:127px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.formcontainer {
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 25px;
+  letter-spacing: 3px;
+  padding-right: 30%;
+  padding-left: 30%;
+  color: white;
+  text-align: left;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  background-color: black;
+   /*background: linear-gradient(-90deg, grey,snow);*/
 }
