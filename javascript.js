@@ -5,6 +5,7 @@ function scrolldown() {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
        
         document.getElementById("menuIcon").style.display = "block";
+         document.getElementById("infoIcon").style.display = "block";
          document.getElementById("menu").style.display= "none"; 
             //     document.getElementById("menu").style.display= "block"; 
        // document.getElementById("menu").style.animationName= "slideOut";
@@ -14,6 +15,7 @@ function scrolldown() {
     else{
     	document.getElementById("menu").style.display = "block";
     	document.getElementById("menuIcon").style.display= "none";
+    	document.getElementById("infoIcon").style.display= "none";
     	//document.getElementById("menu").style.animationName= "slideIn";
      // document.getElementById("menu").style.WebkitAnimationName = "slideIn";
       
@@ -24,6 +26,7 @@ function scrolldown() {
 function showMenu(){
 		
 		document.getElementById("menuIcon").style.display= "none";
+		document.getElementById("infoIcon").style.display= "none";
 	//document.getElementById("menu").style.animationName= "slideIn";
      // document.getElementById("menu").style.WebkitAnimationName = "slideIn";
       document.getElementById("menu").style.display = "block";
@@ -32,14 +35,18 @@ function showMenu(){
 }
 //////////////////////////////////////////////////////////////////////////////////
 function checkWord() {
+
     var guess = document.querySelector("#guesstext");//get the user's input, check it against the copy and we will have a winner
-    if(guess.value!==copy.value){
-    	//you have lost;
-    	colors = ["white","grey", "darkgray","green", "blue"];
-    		
+
+    if(guess.value==copy.value){
+    	colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];	
+    }
+    else if( (copy.value).includes(guess.value)){
+    	return;
     }
     else{
-		colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];	
+		//you have lost;
+    	colors = ["white","grey", "darkgray","green", "blue"];
 
     }
     guess.value="";
@@ -198,12 +205,14 @@ function onTouchEnd(e){
 		}
 	};
 
-	copy.addEventListener("keyup", initScene);
+	copy.addEventListener("keyup", checkWord);
 	window.addEventListener("resize", initScene);
 	window.addEventListener("mousemove", onMouseMove);
 	window.addEventListener("touchmove", onTouchMove);
 	window.addEventListener("click", onMouseClick);
 	window.addEventListener("touchend", onTouchEnd);
+	window.addEventListener("keypress", checkWord);
+	
 	initScene();
 	requestAnimationFrame(render);
-	setInterval(initScene, 9000);
+	setInterval(initScene, 10000);
