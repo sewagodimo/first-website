@@ -246,6 +246,8 @@ html{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
 }
 .bg:hover{
 	/* Grey Scale */
@@ -389,19 +391,21 @@ html{
 }
 
 .column {
-  float: left;
+  
   width: 20%;
   margin-bottom: 16px;
   padding: 0 8px;
+  display: inline-block;
 
 }
 .mainbox{
 	background: white;
+  display: inline-block;
 }
 
 @media (max-width: 650px) {
   .column {
-    width: 100%;
+    width: 85%;
     display: block;
   }
 }
@@ -544,3 +548,36 @@ input[type=submit]:hover {
   background-color: black;
    /*background: linear-gradient(-90deg, grey,snow);*/
 }
+/***************ADDING THE PARALLAX SCROLLERS****************/
+.afro-parallax { 
+    /* The image used */
+    background-image: url("images/afrotech.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.photo-parallax { 
+    /* The image used */
+    background-image: url("images/photo.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media only screen and (max-device-width: 1024px) {
+    .afro-parallax {
+        display: block;
+    }
+
+  }
