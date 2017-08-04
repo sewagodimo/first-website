@@ -7,13 +7,55 @@ body, html {
   font-family: 'Emblema One';
   font-weight: bold;
 }
+/*----------------------------THE CONTACT FROM-----------------------------------------*/
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color:orange;
+    font-weight: bold;
+    font-weight: bold;
+    background-color: black;
+    border-bottom: 2px solid orange;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    width: 10%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.formcontainer {
+     width:100%;
+   height: 100%
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    font-size: 25px;
+  letter-spacing: 3px;
+  padding-right: 20%;
+  padding-left: 20%;
+  font: 400 15px/1.8 "Lato", sans-serif;
+    background-color: black;
+   /*background: linear-gradient(-90deg, grey,snow);*/
+}
 
 /*---------------------------------------TIC TAC TOE GAME-------------------------------*/
 body {
  
   margin: 0 auto;
   text-align: center;
-  
+  width: 100%;
   text-shadow: -1px -1px #333;
   background: black;
 }
