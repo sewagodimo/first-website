@@ -1,4 +1,5 @@
 //////////////////////////////////////////////////////////////////////
+
 window.onscroll = function() {scrolldown()};
 
 function scrolldown() {
@@ -36,7 +37,7 @@ function showMenu(){
 //////////////////////////////////////////////////////////////////////////////////
 function checkWord() {
 
-    var guess = document.querySelector("#guesstext");//get the user's input, check it against the copy and we will have a winner
+    //get the user's input, check it against the copy and we will have a winner
 
     if(guess.value==copy.value){
     	colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];	
@@ -65,7 +66,7 @@ function checkWord() {
 	var colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];
 
 	var copy = document.querySelector("#copy");
-
+	var guess = document.querySelector("#guesstext");
 	var ww = canvas.width = window.innerWidth;
 	var wh = canvas.height = window.innerHeight;
 
