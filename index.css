@@ -319,7 +319,7 @@ html{
   width: 100%;
   text-align: center;
   color: #000;
-
+font-weight: bold;
   background-color: black;
   color: orange;
   padding: 15px;
@@ -623,8 +623,8 @@ input[type="submit"] {
 
 .container-do {
   padding: 0 16px;
+  font-family:"Roboto", Arial, sans-serif;
   color: gray;
-   
 
 }
 
@@ -652,7 +652,7 @@ input[type="submit"] {
 }
 
 .button-do:hover {
-  background-color: red;
+  background-color: gray;
 }
 .project-description{
   color: black; 
@@ -660,4 +660,19 @@ input[type="submit"] {
   height: 40%;
   text-decoration: none;
   
+}
+.django{
+  background-color: #003300;
+}
+.html{
+  background-color: #FF4500;
+}
+.ruby{
+  background-color: #CD5C5C;
+}
+.android{
+  background-color: #32CD32;
+}
+.unity{
+background-color: black;
 }
