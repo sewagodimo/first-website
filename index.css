@@ -320,7 +320,7 @@ html{
   text-align: center;
   color: #000;
 
-  background-color: grey;
+  background-color: black;
   color: orange;
   padding: 15px;
   top: 15%;
@@ -584,14 +584,16 @@ input[type="submit"] {
 
   }
 /******* THE WHAT I DO COLOMN*******************/
-.column {
+.column-do {
   
-  width: 27%;
+  width: 30%;
   margin-bottom: 16px;
-  padding: 0 8px;
+  padding: 0 12px;
+  padding-left: 5%;
   font-size: 12px;
   float: left;
   display: inline-block;
+  padding-top: 5%;
 
 }
 .mainbox{
@@ -600,9 +602,8 @@ input[type="submit"] {
 }
 
 @media (max-width: 650px) {
-  .column {
+  .column-do {
     width: 85%;
-
     display: block;
   }
 }
@@ -616,7 +617,7 @@ input[type="submit"] {
 .card-do:hover{
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 10px 10px 5px grey;
-    background-color: #D3D3D3;
+    
 
 }
 
@@ -645,10 +646,9 @@ input[type="submit"] {
   display: inline-block;
   padding: 8px;
   color: white;
-  
   text-align: center;
   cursor: pointer;
-  width: 80%;
+  width: 100%;
 }
 
 .button-do:hover {
@@ -657,6 +657,7 @@ input[type="submit"] {
 .project-description{
   color: black; 
   font-size: 14px;
+  height: 40%;
   text-decoration: none;
   
 }
