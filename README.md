@@ -1,12 +1,12 @@
-#This is the personal website of Ednecia Matlapeng,
-#Built using
+<h1>This is the personal website of Ednecia Matlapeng</h1>
+<a href="http://ednecia.me">Ednecia.me</a>
+<h2>Built using</h2>
  I made it using javascript-html and css3.
-
  I use to this website to adversitese some of my project and the previous work that I have done
- #Hosting
+<h2>>Hosting</h2>
  I hosted the website using github pages(the student package allows me to personalise it)
  Github hosting is only limited to hosting static pages
- #Features
+ <h2>Features</h2>
  For the website I added two games <i>I am a computer games major</i>
  <li>A tictactoe game with some AI</li>
  <li>a guess the words bubble game</li>
