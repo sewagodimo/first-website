@@ -655,10 +655,11 @@ input[type="submit"] {
   background-color: gray;
 }
 .project-description{
-  color: black; 
   font-size: 14px;
+  font-weight: bold;
   height: 40%;
   text-decoration: none;
+  color: gray;
   
 }
 .django{
