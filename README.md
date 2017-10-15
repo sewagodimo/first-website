@@ -7,7 +7,7 @@
  I hosted the website using github pages(the student package allows me to personalise it)
  Github hosting is only limited to hosting static pages
  <h2>Features</h2>
- <li>I added two games in honor of my computer games major</i>
+ <i>I added two games in honor of my computer games major</i>
  <li>A tictactoe game with some AI</li>
  <li>a guess the words bubble game</li>
  <li>A list of the tools that I have worked with</li>

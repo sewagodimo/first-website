@@ -4,7 +4,8 @@ body, html {
   font: 400 15px/1.8 "Lato", sans-serif;
    margin: 0;
   color: #777;
-  font-family: 'Emblema One';
+
+font-family: 'Poiret One', cursive;
   font-weight: bold;
 }
 /*----------------------------THE CONTACT FROM-----------------------------------------*/
@@ -328,10 +329,12 @@ html{
 }
 
 .caption span.border {
-  background-color: grey;
-  color: #fff;
-  padding: 15px;
-  top: 15%;
+  
+  color: white;
+  font-size: 40px;
+  padding: 5px;
+  font-weight: bold;
+  top: 5%;
   letter-spacing: 10px;
 }
 
@@ -580,3 +583,22 @@ input[type="submit"] {
     }
 
   }
+/******* THE WHAT I DO COLOMN*******************/
+.project-container{
+width: 100%;
+height: 15%;
+background-color: snow;
+display: block;
+
+}
+.project-image{
+text-align:left;
+height: 60%;
+width: 20%;
+float: left;
+}
+.project-tittle{
+  font-size: 20px;
+  color: black;
+
+}
