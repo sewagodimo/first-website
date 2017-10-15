@@ -609,6 +609,7 @@ input[type="submit"] {
 
 .card-do {
   border-top-color: green;
+  height: 80%;
   background: white;
 
 }
